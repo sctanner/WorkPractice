@@ -6,22 +6,34 @@ var dice = {//dice object with sides an roll function
     }
 }
 
-function printResult(number, oMessage){
+function printResult(number, oMessage, result){
+    var truth = "wrong :(";
+    if(result){
+        truth = "right!"
+    }
+    document.getElementById("roll").innerHTML = "You rolled a " + number + ". You got it "+ truth;
     
-    var message = document.getElementById("roll").innerHTML = oMessage + number;
-};
+}
 
+function compareInput(input, number){//
+    if(input == number){
+        return true;
+    }
+    else return false;
+}
 
-
+//code starts running here
 var oMessage = document.getElementById("roll").innerHTML;
 var button = document.getElementById("button");//get the button
-button.onclick = function(){//when button is clicked...
-    document.getElementById("welcome").innerHTML =  "Click the button to roll again...";
-    
-    var number = dice.roll();
-    printResult(number, oMessage);
-    
 
+button.onclick = function(){//when button is clicked...
+    
+    var input = prompt("Enter  your guess:");//get user input
+    var number = dice.roll();//roll the dice
+    document.getElementById("output").innerHTML = "You guessed "+input;
+    var result = compareInput(input, number);
+    printResult(number, oMessage, result);
+    
 
 
 }  
