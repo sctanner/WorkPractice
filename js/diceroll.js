@@ -9,7 +9,7 @@ var dice = {//dice object with sides an roll function
 function printResult(number, oMessage, result){
     var truth = "wrong :(";
     if(result){
-        truth = "right!"
+        truth = "right :)"
     }
     document.getElementById("roll").innerHTML = "You rolled a " + number + ". You got it "+ truth;
     
